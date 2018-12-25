@@ -22,7 +22,6 @@ class Controlled extends Component {
 
     onshandler = (event) => { 
         event.preventDefault();
-
         console.log(this.state);
     }
 

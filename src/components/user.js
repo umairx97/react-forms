@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-
 import FormFields from '../widgets/Forms/formFields';
 
 
@@ -16,7 +14,7 @@ class User extends Component {
 				labelText: 'Name', 
 				config: { 
 					name: 'name_input', 
-					text: 'text', 
+					type: 'text', 
 					placeholder: 'Enter your name'
 				}
 			},
@@ -27,12 +25,28 @@ class User extends Component {
 				labelText: 'lastname', 
 				config: { 
 					name: 'lastname_input', 
-					text: 'text', 
+					type: 'text', 
 					placeholder: 'Enter your lastname'
 				}
 			}
 		}
-		
+	}
+
+
+	updateForm = (newState) => { 
+		this.setState ({ 
+			formData:newState
+		})
+	}
+
+	submitForm = (event) => {
+		event.preventDefault();
+		let dataToSubmit = {};
+
+		for (let key in this.state.formData){ 
+			dataToSubmit[key] = this.state.formData[key].value
+		}
+ 
 	}
 
 	render(){
@@ -43,6 +57,7 @@ class User extends Component {
 
 					<FormFields
 					formData = {this.state.formData}
+					change = {(newState) => this.updateForm(newState)}
 					
 					
 					/>
