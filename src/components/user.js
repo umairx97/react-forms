@@ -5,7 +5,6 @@ import FormFields from '../widgets/Forms/formFields';
 class User extends Component {
 
 	state = {
-
 		formData: { 
 			name: {
 				element: 'input', 
@@ -16,8 +15,16 @@ class User extends Component {
 					name: 'name_input', 
 					type: 'text', 
 					placeholder: 'Enter your name'
-				}
+				}, 
+				validation: { 
+					required: true, 
+
+				}, 
+				valid: false, 
+				touched: false, 
+				validationMessage = '',
 			},
+
 			lastname: {
 				element: 'input', 
 				value:'', 
@@ -27,7 +34,14 @@ class User extends Component {
 					name: 'lastname_input', 
 					type: 'text', 
 					placeholder: 'Enter your lastname'
-				}
+				}, 
+				validation: { 
+					required: false, 
+
+				}, 
+				valid: true, 
+				touched: false, 
+				validationMessage = '',
 			}, 
 			message: { 
 				element: 'textarea', 
@@ -52,8 +66,7 @@ class User extends Component {
 						{val: '2', text:'20-30'},
 						{val: '3', text:'+30'},
 					]
-				}
-				
+				}	
 			}
 		}
 	}
