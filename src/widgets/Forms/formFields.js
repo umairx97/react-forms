@@ -12,6 +12,7 @@ const FormFields = (props) => {
                 settings: props.formData[elementName]
             })
         }
+        
 
         return formArray.map ((item, i) => { 
             return ( 
