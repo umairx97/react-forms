@@ -17,12 +17,13 @@ class User extends Component {
 					placeholder: 'Enter your name'
 				}, 
 				validation: { 
-					required: true, 
+					required: true,
+					minLen: 5 
 
 				}, 
 				valid: false, 
 				touched: false,
-				validationMessage: '',
+				validationMessage: ''
 			},
 			lastname: {
 				element: 'input', 
@@ -33,7 +34,14 @@ class User extends Component {
 					name: 'lastname_input', 
 					type: 'text', 
 					placeholder: 'Enter your lastname'
-				}
+				},
+				validation: { 
+					required: false, 
+
+				}, 
+				valid: true, 
+				touched: false,
+				validationMessage: ''
 			}, 
 			message: { 
 				element: 'textarea', 
@@ -90,6 +98,7 @@ class User extends Component {
 
 					<FormFields
 					formData = {this.state.formData}
+					onblur = {(newState) => this.updateForm(newState)}
 					change = {(newState) => this.updateForm(newState)}
 					
 					
